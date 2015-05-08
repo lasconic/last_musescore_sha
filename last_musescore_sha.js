@@ -9,16 +9,16 @@
 		script.onload = script.onreadystatechange = function(){
 			if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) {
 				done = true;
-				initMyBookmarklet();
+				initLastSHABookmarklet();
 			}
 		};
 		document.getElementsByTagName("head")[0].appendChild(script);
 	} else {
-		initMyBookmarklet();
+		initLastSHABookmarklet();
 	}
 	
-	function initMyBookmarklet() {
-		(window.myBookmarklet = function() {
+	function initLastSHABookmarklet() {
+		(window.lastSHABookmarklet = function() {
         $.getJSON('https://api.github.com/repos/musescore/MuseScore/commits?callback=?', function(data) {
             $.each(data, function(key, val) { 
                 if(val.length > 0) 
