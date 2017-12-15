@@ -19,10 +19,10 @@
 	
 	function initLastSHABookmarklet() {
 		(window.lastSHABookmarklet = function() {
-        $.getJSON('https://api.github.com/repos/musescore/MuseScore/commits?callback=?', function(data) {
-            $.each(data, function(key, val) { 
+        jQuery.getJSON('https://api.github.com/repos/musescore/MuseScore/commits?callback=?', function(data) {
+            jQuery.each(data, function(key, val) { 
                 if(val.length > 0) 
-                    $('textarea:focus').val( $('textarea:focus').val()+'github-musescore-MuseScore-'+val[0].sha.substr(0, 10) );
+                    jQuery('textarea:focus').val( jQuery('textarea:focus').val()+'github-musescore-MuseScore-'+val[0].sha.substr(0, 10) );
             });
         });
 		})();
